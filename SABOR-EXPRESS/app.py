@@ -1,6 +1,11 @@
 import os
 
-restaurantes = ['Jojo', 'Mariposa', 'Tekai', 'Dmeg']
+restaurantes = [{'nome':'Jojo', 'categoria':'Japonesa', 'ativo':False},
+                {'nome':'Mariposa', 'categoria':'Italiana', 'ativo':True},
+                {'nome':'Tekai', 'categoria':'Chinesa', 'ativo':False}
+]
+
+#restaurantes = ['Jojo', 'Mariposa', 'Tekai', 'Dmeg']
 
 def exibir_nome_do_programa():
 
@@ -16,7 +21,7 @@ def exibir_nome_do_programa():
 def exibir_opcoes():
     print("1. Cadastrar restaurante")
     print("2. Listar restaurante")
-    print("3. Ativar restaurante")
+    print("3. Alterar estado do restaurante")
     print("4. Sair \n")
 
 def encerrar():
@@ -32,24 +37,52 @@ def opacao_invalida():
 
 def exibir_subtitulo(texto):
     os.system('cls')
+    linha = '*' * (len(texto))
+    print(linha)
     print(texto)
+    print(linha)
     print()
 
 #função para cadastrar novo restaurante
 def cadastrar_novo_restaurante():
     exibir_subtitulo('Cadastro de novos restaurantes')
     nome_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
-    restaurantes.append(nome_restaurante)
-    print(f'Restautante {restaurantes} cadastrado com sucesso! \n')
+    categiria = input(f'Digite a categoria {nome_restaurante} ')
+
+    dados_restaurante = {'nome': nome_restaurante, 'categoria':categiria, 'ativo':False}
+    restaurantes.append(dados_restaurante)
+    print(f'Restautante {nome_restaurante}\n \ncadastrado com sucesso! \n')
     voltar_menu_principal()
 
 #listar restaurantes cadastrados
 def listar_restaurantes():
     exibir_subtitulo('Listando restaurantes')
 
+    print(f'{'Nome do restaurante'.ljust(22)} | {'Categoria'.ljust(20)} | {'Status'}')
+
     for restaurante in restaurantes:
-        print(restaurante)
+        nome = restaurante['nome']
+        categoria = restaurante['categoria']
+        ativo = 'ativado' if restaurante['ativo'] else 'desativado'
+        print(f'- {nome.ljust(20)} | {categoria.ljust(20)} | {ativo}')
        
+    voltar_menu_principal()
+
+def alterar_estado():
+    exibir_subtitulo('Alterando o estado do restaurante')
+
+    nome_restaurante = input('Digite o nome do restaurante de deseja alterar o estado: ')
+    restaurante_encontrado = False
+    for restaurante in restaurantes:
+        if nome_restaurante == restaurante['nome']:
+            restaurante_encontrado = True
+            restaurante['ativo'] = not restaurante['ativo']
+            mensagem = f'O restaurante {nome_restaurante} foi ativado com sucesso' if restaurante['ativo'] else f'O restaurante foi desativado com sucesso'
+            print(mensagem)
+
+    if not restaurante_encontrado:
+        print('O restauranteo não foi encontrado')
+
     voltar_menu_principal()
 '''
 Foi aplicado o Try Except para tratar o erro com numero que não estejam nos contextos
@@ -66,7 +99,7 @@ def escolher_opcao():
             case 2:
                 listar_restaurantes()
             case 3:
-                print('Ativar restaurante \n')
+                alterar_estado()
             case 4:
                 encerrar()
             case _:
