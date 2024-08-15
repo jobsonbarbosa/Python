@@ -8,7 +8,7 @@ restaurantes = [{'nome':'Jojo', 'categoria':'Japonesa', 'ativo':False},
 #restaurantes = ['Jojo', 'Mariposa', 'Tekai', 'Dmeg']
 
 def exibir_nome_do_programa():
-
+    ''' Exibi o nome estilizado do programa '''
     print("""
     ░██████╗░█████╗░██████╗░░█████╗░██████╗░  ███████╗██╗░░██╗██████╗░██████╗░███████╗░██████╗░██████╗
     ██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗  ██╔════╝╚██╗██╔╝██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝
@@ -19,23 +19,28 @@ def exibir_nome_do_programa():
     """)
 
 def exibir_opcoes():
+    ''' Exibir as opção disponiveis no menu principal '''
     print("1. Cadastrar restaurante")
     print("2. Listar restaurante")
     print("3. Alterar estado do restaurante")
     print("4. Sair \n")
 
 def encerrar():
+    ''' Exibi mensage de finalização do programa '''
     exibir_subtitulo('Encerrando o App.')
 
 def voltar_menu_principal():
+    ''' Solicita uma tecla para voltar ao menu principal '''
     input('\nDigite um tecla para voltar ao menu inicial ')
     main()
 
 def opacao_invalida():
+    ''' Exibi mensagem de opção inválida e retorna ao menu principal '''
     print('Opcão invalida \n')
     voltar_menu_principal()
 
 def exibir_subtitulo(texto):
+    ''' Limpa o terminar '''
     os.system('cls')
     linha = '*' * (len(texto))
     print(linha)
@@ -45,6 +50,16 @@ def exibir_subtitulo(texto):
 
 #função para cadastrar novo restaurante
 def cadastrar_novo_restaurante():
+    ''' Essa função é responsavel por cadastrar um nono restaurante
+    
+    inputs:
+        - Nome do restaurante
+        - Categoria
+
+    Output:
+        - Adicionar restaurante a lista de restaurante
+
+    '''
     exibir_subtitulo('Cadastro de novos restaurantes')
     nome_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
     categiria = input(f'Digite a categoria {nome_restaurante} ')
