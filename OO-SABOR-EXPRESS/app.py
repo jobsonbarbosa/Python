@@ -1,13 +1,14 @@
 from modelos.restaurante import Restaurante
+from modelos.cardapio.bebida import Bebida
+from modelos.cardapio.prato import Prato
 
 restarurante_jojo = Restaurante('Jojo', 'Japones')
-restarurante_jojo.receber_avaliacao('Jobson', 9)
-restarurante_jojo.receber_avaliacao('Joelma', 10)
-restarurante_jojo.receber_avaliacao('Carolina', 7)
-restarurante_jojo.receber_avaliacao('Maura', 5)
+bebida_suco = Bebida('Laranja', 5.0, 'grande')
+prato_feijoada = Prato('Feijoada', 30.0, 'Feijoada da Nega Su')
 
 def main():
-    Restaurante.listar_restaurantes()
+    print(bebida_suco)
+    print(prato_feijoada)
 
 if __name__ == '__main__':
     main()
