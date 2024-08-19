@@ -36,7 +36,14 @@ print(f'Depois de ativar: {conta3._ativo}')
 
 '''
 Refatore a classe ContaBancaria para utilizar a abordagem "pythonica" na criação de atributos. Utilize propriedades, se necessário.
+'''
 
+class ContaBancariaPythonica:
+    def __init__(self, titular, saldo):
+        self._titular = titular
+        self._saldo = saldo
+
+'''
 Crie uma instância da classe e imprima o valor da propriedade titular.
 
 Crie uma classe chamada ClienteBanco com um construtor que aceita 5 atributos. Instancie 3 objetos desta classe e atribua valores aos seus atributos através do método construtor.
