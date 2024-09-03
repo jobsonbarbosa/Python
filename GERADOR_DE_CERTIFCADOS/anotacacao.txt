@@ -1,0 +1,11 @@
+Palavra secreta aula 1: QUEM APRENDE NÃO DEPENDE
+
+Problema:
+    Automatizar a geração de certificado em python
+
+Para usar apenas uma parte da biblitecas usamos o
+
+from fpdf import FPDF
+
+Q
+
