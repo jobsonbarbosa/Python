@@ -1,11 +1,11 @@
 import os
-SECRET_KEY = 'pyhton'
+SECRET_KEY = 'python'
 
  #criando cenexão com o banco de dados
 SQLALCHEMY_DATABASE_URI = '{SGBD}://{usuario}:{senha}@{servidor}/{database}'.format(
         SGBD = 'mysql+mysqlconnector',
         usuario = 'root',
-        senha = 'Mswat25',
+        senha = '',
         servidor = 'localhost',
         database = 'jogoteca'
 )
